@@ -16,37 +16,37 @@ chai.should();
 describe('Movies Endpoints', function() {
     this.timeout(15000);
 
-    // it('It should create a movie by basic user', (done) => {
-    //     server
-    //         .post(`/movies`)
-    //         .send({
-    //             'title': "Wonder Woman"
-    //         })
-    //         .set('Content-Type', 'application/json')
-    //         .set('Authorization', `Bearer ${basicserAccessToken}`)
-    //         .expect('Content-Type', /json/)
-    //         .expect(200)
-    //         .end((err, res) => {
-    //             res.body.should.contain.keys('Title', 'Released', 'Genre', 'Director');
-    //             done();
-    //         });
-    // });
+    it('It should failed to create movie by basic user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "Venom"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${basicserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(401)
+            .end((err, res) => {
+                res.body.should.contain.keys('error');
+                done();
+            });
+    });
 
-    // it('It should create a movie by premium user', (done) => {
-    //     server
-    //         .post(`/movies`)
-    //         .send({
-    //             'title': "Avengers"
-    //         })
-    //         .set('Content-Type', 'application/json')
-    //         .set('Authorization', `Bearer ${premiumUserAccessToken}`)
-    //         .expect('Content-Type', /json/)
-    //         .expect(200)
-    //         .end((err, res) => {
-    //             res.body.should.contain.keys('Title', 'Released', 'Genre', 'Director');
-    //             done();
-    //         });
-    // });
+    it('It should create a movie by premium user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "IP Man 4"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${premiumUserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
+                done();
+            });
+    });
 
     it('It should list all movies', (done) => {
         server

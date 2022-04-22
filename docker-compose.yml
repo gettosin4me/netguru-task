@@ -1,0 +1,24 @@
+version: "3.2"
+services:
+  app:
+    command: node src/server.js
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - published: ${APP_PORT:-3000}
+        target: 3000
+    volumes:
+      - .:/app/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: netguru
+      MONGO_INITDB_ROOT_PASSWORD: netgurupassword
+    ports:
+      - 27017:27028
+    volumes:
+      - mongodb_data_container:/data/db

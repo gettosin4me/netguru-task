@@ -5,6 +5,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: netguru
       MONGO_INITDB_ROOT_PASSWORD: netgurupassword
+      MONGO_INITDB_DATABASE: test
     ports:
       - 27017:27017
     volumes:

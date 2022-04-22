@@ -121,25 +121,3 @@ Response
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywibmFtZSI6IkJhc2ljIFRob21hcyIsInJvbGUiOiJiYXNpYyIsImlhdCI6MTYwNjIyMTgzOCwiZXhwIjoxNjA2MjIzNjM4LCJpc3MiOiJodHRwczovL3d3dy5uZXRndXJ1LmNvbS8iLCJzdWIiOiIxMjMifQ.KjZ3zZM1lZa1SB8U-W65oQApSiC70ePdkQ7LbAhpUQg"
 }
 ```
-
-## Rules
-
-- Database and framework choice are on your side.
-- Your API has to be dockerized. Create `Dockerfile` and `docker-compose` and document the process of running it locally.
-- Provided solution should consist of two microservices.
-  - `Authentication Service` - provided by us to auth users
-  - `Movies Service` - created by you to handle movies data
-- Test your code.
-- Provide documentation of your API.
-- Application should be pushed to the public git repository and should have a
-  working CI/CD pipeline that runs the tests. For example you can use GitHub
-  Actions or CircleCI. Create a sample PR to show us the working CI/CD pipeline.
-
-## What will be evaluated?
-
-- Task completeness
-- Architecture
-- Code quality
-- Tests quality
-- Database design
-- Technology stack

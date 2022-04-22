@@ -13,7 +13,7 @@ const { ERRORS } = require('./constants');
 
 const MovieDataAccess = require('./data-access/movie');
 
-const PORT = 6800;
+const PORT = 3000;
 const { JWT_SECRET } = process.env;
 
 if (!JWT_SECRET) {

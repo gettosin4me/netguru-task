@@ -9,4 +9,6 @@ RUN mkdir ./src
 
 COPY ./src ./src
 
+EXPOSE 5000
+
 CMD ["node", "./src/server.js"]

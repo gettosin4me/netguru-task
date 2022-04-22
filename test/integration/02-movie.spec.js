@@ -8,7 +8,7 @@ const supertest = require('supertest');
 // const config = require('../../config');
 // const {DB} = require('../../database/DB');
 
-const server = supertest.agent("http://localhost:6800/");
+const server = supertest.agent("http://localhost:3000/");
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 chai.should();

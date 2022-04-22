@@ -10,7 +10,7 @@ const supertest = require('supertest');
 
 global.basicserAccessToken = null;
 global.premiumUserAccessToken = null;
-const server = supertest.agent("http://localhost:6800/");
+const server = supertest.agent("http://localhost:3000/");
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 chai.should();

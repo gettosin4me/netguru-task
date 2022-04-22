@@ -29,4 +29,4 @@ jobs:
     - name: Build docker images
       run: JWT_SECRET=secretissecret IMDB_API_KEY=9333ecad docker-compose up
     - name: Run tests
-      run: docker-compose run test
+      run: npm run test

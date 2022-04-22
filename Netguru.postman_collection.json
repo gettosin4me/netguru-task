@@ -32,12 +32,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:6800/auth",
+					"raw": "http://localhost:3000/auth",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "6800",
+					"port": "3000",
 					"path": [
 						"auth"
 					]
@@ -69,12 +69,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:6800/movies?page=1&limit=10",
+					"raw": "http://localhost:3000/movies?page=1&limit=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "6800",
+					"port": "3000",
 					"path": [
 						"movies"
 					],
@@ -113,12 +113,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:6800/movies",
+					"raw": "http://localhost:3000/movies",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "6800",
+					"port": "3000",
 					"path": [
 						"movies"
 					]

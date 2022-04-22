@@ -2,14 +2,12 @@ version: "3.2"
 services:
   mongodb_container:
     image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: netguru
-      MONGO_INITDB_ROOT_PASSWORD: netgurupassword
-      MONGO_INITDB_DATABASE: test
+    restart: always
     ports:
       - 27017:27017
     volumes:
-      - mongodb_data_container:/data/db
+      - "$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/"
+    command: mongod
   
   app:
     command: node src/server.js
@@ -23,7 +21,7 @@ services:
       - .:/app/
     environment:
       JWT_SECRET: ${JWT_SECRET}
-      DB_URL: mongodb://mongodb_container/netguru_db
+      DB_URL: mongodb://mongodb_container/test
       IMDB_API_KEY: 9333ecad
   
 volumes:

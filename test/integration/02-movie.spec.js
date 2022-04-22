@@ -16,11 +16,91 @@ chai.should();
 describe('Movies Endpoints', function() {
     this.timeout(15000);
 
-    it('It should failed to create movie by basic user', (done) => {
+    it('It should create a movie by basic user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "Infinity"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${basicserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
+                done();
+            });
+    });
+
+    it('It should create a movie by basic user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "Wonder woman"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${basicserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
+                done();
+            });
+    });
+
+    it('It should create a movie by basic user', (done) => {
         server
             .post(`movies`)
             .send({
                 'title': "Venom"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${basicserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
+                done();
+            });
+    });
+
+    it('It should create a movie by basic user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "Avengers"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${basicserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
+                done();
+            });
+    });
+
+    it('It should create a movie by basic user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "proud mary"
+            })
+            .set('Content-Type', 'application/json')
+            .set('Authorization', `Bearer ${basicserAccessToken}`)
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
+                done();
+            });
+    });
+
+    it('It should failed to create movie by basic user', (done) => {
+        server
+            .post(`movies`)
+            .send({
+                'title': "king of boys"
             })
             .set('Content-Type', 'application/json')
             .set('Authorization', `Bearer ${basicserAccessToken}`)
@@ -36,14 +116,13 @@ describe('Movies Endpoints', function() {
         server
             .post(`movies`)
             .send({
-                'title': "IP Man 4"
+                'title': "Thor"
             })
             .set('Content-Type', 'application/json')
             .set('Authorization', `Bearer ${premiumUserAccessToken}`)
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, res) => {
-                console.log({res: res.body})
                 res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
                 done();
             });
@@ -57,7 +136,6 @@ describe('Movies Endpoints', function() {
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, res) => {
-                console.log({res: res.body})
                 res.body.data[0].should.contain.keys('title', 'released', 'genre', 'director');
                 done();
             });

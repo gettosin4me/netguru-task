@@ -27,6 +27,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - name: Build docker images
-      run: JWT_SECRET=secretissecret IMDB_API_KEY=9333ecad docker-compose up
+      run: JWT_SECRET=secretissecret IMDB_API_KEY=9333ecad docker-compose up -d
     - name: Run tests
       run: npm run test

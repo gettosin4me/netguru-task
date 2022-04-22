@@ -41,14 +41,14 @@ You need to have `docker` and `docker-compose` installed on your computer to run
 1. Run from root dir
 
 ```
-JWT_SECRET=secret docker-compose up -d
+JWT_SECRET=secret IMDB_API_KEY=key docker-compose up -d
 ```
 
 By default the auth service will start on port `3000` but you can override
 the default value by setting the `APP_PORT` env var
 
 ```
-APP_PORT=8081 JWT_SECRET=secret docker-compose up -d
+APP_PORT=8081 JWT_SECRET=secret IMDB_API_KEY=key docker-compose up -d
 ```
 
 To stop the authorization service run

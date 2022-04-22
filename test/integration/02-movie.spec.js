@@ -43,6 +43,7 @@ describe('Movies Endpoints', function() {
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, res) => {
+                console.log({res: res.body})
                 res.body.data.should.contain.keys('Title', 'Released', 'Genre', 'Director');
                 done();
             });
@@ -56,6 +57,7 @@ describe('Movies Endpoints', function() {
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, res) => {
+                console.log({res: res.body})
                 res.body.data[0].should.contain.keys('title', 'released', 'genre', 'director');
                 done();
             });

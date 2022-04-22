@@ -8,7 +8,8 @@ const supertest = require('supertest');
 // const config = require('../../config');
 // const {DB} = require('../../database/DB');
 
-global.userAccessToken = null;
+global.basicserAccessToken = null;
+global.premiumUserAccessToken = null;
 const server = supertest.agent("http://localhost:6800/");
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
@@ -19,36 +20,36 @@ describe('Movies Endpoints', function() {
 
     it('It should login a basic user.', done => {
         server
-            .post('/auth/login')
+            .post('auth')
             .send({
-                email: 'basic-thomas',
+                username: 'basic-thomas',
                 password: 'sR-_pcoow-27-6PAwCD8'
             })
             .set('Content-Type', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, res) => {
-                res.body.data.should.contain.keys('token');
-                res.body.data.token.should.not.be.null;
-                userAccessToken;
+                res.body.should.contain.keys('token');
+                res.body.token.should.not.be.null;
+                basicserAccessToken = res.body.token;
                 done();
             });
     });
 
     it('It should login a premium user.', done => {
         server
-            .post('/auth/login')
+            .post('auth')
             .send({
-                email: 'premium-jim',
+                username: 'premium-jim',
                 password: 'GBLtTyq3E_UNjFnpo9m6'
             })
             .set('Content-Type', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, res) => {
-                res.body.data.should.contain.keys('token');
-                res.body.data.token.should.not.be.null;
-                userAccessToken;
+                res.body.should.contain.keys('token');
+                res.body.token.should.not.be.null;
+                premiumUserAccessToken = res.body.token;
                 done();
             });
     });

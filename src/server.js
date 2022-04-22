@@ -89,7 +89,7 @@ app.post("/movies", AuthMiddleware, CanCreateMovieMiddleware, async (req, res, n
 
 app.get('/movies', AuthMiddleware, async (req, res, next) => {
   try {
-    const { page = 1, limit = 1 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
     const offset = parseInt(
       parseInt(limit) * parseInt(page) - parseInt(limit)
     );
